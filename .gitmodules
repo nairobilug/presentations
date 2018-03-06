@@ -1,0 +1,3 @@
+[submodule "ssh-tunneling-talk"]
+	path = ssh-tunneling-talk
+	url = git@github.com:kmwenja/ssh-tunneling-talk.git
