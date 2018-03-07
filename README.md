@@ -7,4 +7,6 @@ Diverging ideas are welcome.
 
 ## Contributing
 Submodules should have presentation date in them in the format yyyy-mm-dd
-`git submodule add <git-repository-url>`
+```
+git submodule add <git-repository-url> yyyy-mm-dd\ presentation-name
+```
