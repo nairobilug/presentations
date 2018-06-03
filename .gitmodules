@@ -1,3 +1,6 @@
 [submodule "ssh-tunneling-talk"]
 	path = 2018-03-03-ssh-tunneling
 	url = git@github.com:kmwenja/ssh-tunneling-talk.git
+[submodule "2018-06-02-controlling-ssh-access-using-vault"]
+	path = 2018-06-02-controlling-ssh-access-using-vault
+	url = git@github.com:jasonrogena/controlling-ssh-access-using-vault.git
