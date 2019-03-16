@@ -7,3 +7,6 @@
 [submodule "2019-01-05-literate-programming-in-org-mode"]
 	path = 2019-01-05-literate-programming-in-org-mode
 	url = https://github.com/BonfaceKilz/literate-programming-in-org-mode-talk
+[submodule "2019-03-02-wielding-ssh"]
+	path = 2019-03-02-wielding-ssh
+	url = https://github.com/kmwenja/wielding-ssh
