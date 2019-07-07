@@ -10,3 +10,6 @@
 [submodule "2019-03-02-wielding-ssh"]
 	path = 2019-03-02-wielding-ssh
 	url = https://github.com/kmwenja/wielding-ssh
+[submodule "2019-07-06-opensource-for-fun-and-for-profit"]
+	path = 2019-07-06-opensource-for-fun-and-for-profit
+	url = https://gitlab.com/bkmgit/presentations
