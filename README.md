@@ -1,7 +1,7 @@
-# Nairobi LUG meetup presentations
-
+# Nairobi LUG Meetup Presentations
 
 ## Structure
+
 Organized as git submodules from presenter's own repositories.
 Diverging ideas are welcome.
 
