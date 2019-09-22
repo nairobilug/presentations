@@ -16,3 +16,6 @@
 [submodule "2019-09-07-pam-talk"]
 	path = 2019-09-07-pam-talk
 	url = https://github.com/kmwenja/pam-talk
+[submodule "2019-05-04-plain-text-accounting"]
+	path = 2019-05-04-plain-text-accounting
+	url = https://github.com/jnduli/lug-ledger-presentation
