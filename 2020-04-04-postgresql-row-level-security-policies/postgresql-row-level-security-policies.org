@@ -1,0 +1,120 @@
+#+STARTUP: content
+#+TITLE: Postgresql Row-Level Security Policies
+#+AUTHOR: Frederick Muriuki Muriithi
+
+* Introduction
+
+$ who am i
+- Frederick M. Muriithi
+- fredmanglis.me.ke
+- @fredmanglis
+
+- Explore controlling access to data in Postgresql databases with row-level
+  security policies.
+- Hold questions to end of presentation.
+
+
+* Assumptions
+
+- You have some experience working with databases
+- You have at least heard of or used =GRANT=
+- You are aware of the existence of Postgresql
+
+* Review =GRANT=
+
+- Grant is used to control who has access to database tables e.g
+
+#+BEGIN_SRC sql
+> GRANT SELECT ON table_name TO username;
+#+END_SRC
+
+- enables user *username* to read all data in table *table_name*, meanwhile,
+
+#+BEGIN_SRC sql
+> GRANT SELECT ON ALL TABLES IN SCHEMA schema_name TO username;
+#+END_SRC
+
+- enables user *username* to read all data in all tables in schema *schema_name*
+
+- The same goes for the other privileges like =INSERT=, =CREATE=, =DELETE=,
+  =TRUNCATE= etc
+
+
+* Row-Level Security Policies
+
+- Why?
+  - =GRANT= already limits who has access to tables, and you can even limit the
+    columns the user can access with =GRANT=.
+  - Why do we then want (or need) row-level security policies
+- =GRANT= is coarse
+  - Privileges are applied for entire table, e.g.
+    - =SELECT= give access to data in the entire (set of) table(s) in the query.
+
+#+BEGIN_SRC sql
+> SELECT * FROM table_name
+#+END_SRC
+
+will return *ALL* rows in the table.
+
+* Row-Level Security Policies (continued)
+
+- Row-level security policies enable you to filter rows according to specific
+  criteria, e.g.
+  - Only rows that the user created
+  - Only rows belonging in the same organisation as the user
+  etc.
+
+* Row-Level Security Policies: Syntax
+
+#+BEGIN_SRC sql
+CREATE POLICY name ON table_name
+    [ AS { PERMISSIVE | RESTRICTIVE } ]
+    [ FOR { ALL | SELECT | INSERT | UPDATE | DELETE } ]
+    [ TO { role_name | PUBLIC | CURRENT_USER | SESSION_USER } [, ...] ]
+    [ USING ( using_expression ) ]
+    [ WITH CHECK ( check_expression ) ]
+#+END_SRC
+
+e.g.
+
+ALTER TABLE table_name ENABLE ROW LEVEL SECURITY
+#+BEGIN_SRC sql
+CREATE POLICY org_manager_select ON organisation_sales
+FOR 
+  SELECT
+TO
+  user_fredmanglis
+USING
+  (pg_has_role(current_user, 'org_admin', 'USAGE')
+  AND
+  (org_uuid IN (
+    SELECT o.org_uuid
+    FROM users AS u
+    INNER JOIN organisation_users AS o
+    ON u.user_uuid=o.user_uuid
+    AND u.username=current_user))
+#+END_SRC
+
+which limits the rows to those which are the sales for the same organisation as
+the currently logged in user.
+
+* Demonstration
+
+- We demo some examples now
+
+* References
+
+** Row-Level Security Policies
+- https://www.postgresql.org/docs/10/ddl-rowsecurity.html
+- https://www.postgresql.org/docs/10/sql-createpolicy.html
+
+** =GRANT=
+- https://www.postgresql.org/docs/10/ddl-priv.html
+
+* Conclusions, Q&A, Vote of Thanks
+
+- Thanks to:
+  - Ibrahim for waxing poetic about row-level security policies
+  - Raymond for pushing me to do a presentantion
+
+- Question Time
