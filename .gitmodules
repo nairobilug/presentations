@@ -22,6 +22,9 @@
 [submodule "2020-06-06-functional-packaging-with-guix"]
 	path = 2020-06-06-functional-packaging-with-guix
 	url = https://github.com/BonfaceKilz/functional-packaging-with-guix
+[submodule "2020-11-07-an-sres-guide-to-distributed-consensus"]
+	path = 2020-11-07-an-sres-guide-to-distributed-consensus
+	url = https://github.com/jasonrogena/an-sres-guide-to-distributed-consensus.git
 [submodule "2021-07-03-database-building-blocks"]
 	path = 2021-07-03-database-building-blocks
 	url = https://github.com/kmwenja/database-building-blocks-talk.git
