@@ -28,3 +28,6 @@
 [submodule "2021-07-03-database-building-blocks"]
 	path = 2021-07-03-database-building-blocks
 	url = https://github.com/kmwenja/database-building-blocks-talk.git
+[submodule "2026-04-04-postgres-architecture"]
+	path = 2026-04-04-postgres-architecture
+	url = https://github.com/kiwavi/postgres-architecture-presentation.git
